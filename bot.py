@@ -7,8 +7,10 @@ from starlette.routing import Route
 from telegram import Update
 from telegram.ext import Application, ContextTypes, filters, MessageHandler
 
-# Ваш токен от BotFather
-TOKEN = "7834112722:AAHWOMS3AhirmBI5eM0g8JdniKWm75arlXE"
+# Токен из переменной окружения
+TOKEN = os.getenv("TELEGRAM_TOKEN")
+if not TOKEN:
+    raise ValueError("TELEGRAM_TOKEN не найден. Убедитесь, что переменная окружения задана.")
 
 # Функция для обработки сообщений
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
