@@ -8,7 +8,7 @@ from telegram import Update
 from telegram.ext import Application, ContextTypes, filters, MessageHandler
 
 TOKEN = os.getenv("7834112722:AAHWOMS3AhirmBI5eM0g8JdniKWm75arlXE")
-URL = os.getenv("https://dnevnik-eny5.onrender.com")
+URL = os.getenv("https://api.render.com/deploy/srv-ctd9n6hu0jms73f51u90?key=lyO796N_rCE")
 PORT = 8000
 
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
