@@ -30,11 +30,17 @@ async def health(_: Request) -> PlainTextResponse:
     """Проверка работоспособности сервиса."""
     return PlainTextResponse(content="The bot is still running fine :)")
 
+# Обработчик для маршрута /
+async def home(_: Request) -> PlainTextResponse:
+    """Обрабатывает запросы на корневой маршрут."""
+    return PlainTextResponse(content="Welcome to the Telegram bot service!")
+
 # Настройка маршрутов
 starlette_app = Starlette(
     routes=[
         Route("/telegram", telegram, methods=["POST"]),  # Webhook для Telegram
         Route("/healthcheck", health, methods=["GET"]),  # Health check для Render
+        Route("/", home, methods=["GET"]),  # Корневой маршрут
     ]
 )
 
